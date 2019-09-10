@@ -1,0 +1,29 @@
+[
+  {
+    "outputFileName": "wwwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/sidebarLinkActivate.min.js",
+    "inputFiles": [
+      "wwwroot/js/sidebarLinkActivate.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/jquery/jquery.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/jquery.js"
+    ]
+  }
+]
