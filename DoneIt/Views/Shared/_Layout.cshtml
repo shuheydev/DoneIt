@@ -1,22 +1,38 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>タイトル</title>
     <partial name="_CssImport" />
+    <partial name="_FontImport" />
+    <style>
+        main {
+            background-color: #eeeeee;
+        }
+    </style>
 </head>
 <body>
     <header>
+        <partial name="_Header" />
     </header>
-    <div class="container">
-        <main>
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer>
+    <main class="columns">
+        <div class="submenu column is-3">
+            <partial name="_Sidebar" />
+        </div>
+        <div class="column">
+            @RenderBody()
+    </div>
+    </main>
+
+    <footer class="footer">
+        <partial name="_Footer" />
     </footer>
+
     <partial name="_JavascriptImport" />
+
 </body>
 </html>
