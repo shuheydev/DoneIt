@@ -1,0 +1,48 @@
+﻿@model SignupViewModel
+
+@{
+    Layout = "SignIn/_SignInLayout";
+}
+
+<div class="container is-fluid">
+    <section class="section">
+        <div class="container has-text-centered">
+            <div class="columns is-centered">
+                <div class="column is-5 is-4-desktop">
+                    <h2 class="title">
+                        Sign up
+                    </h2>
+                    <form method="post">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" asp-for="Email" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" asp-for="Name" placeholder="Name" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" asp-for="Password" placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" asp-for="PasswordConfirm" placeholder="Confirm Password" />
+                            </div>
+                        </div>
+                        <div class="field is-grouped">
+                            <div class="control is-expanded">
+                                <button class="button is-primary is-fullwidth">
+                                    Sign Up!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
