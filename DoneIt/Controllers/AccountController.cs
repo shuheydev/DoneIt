@@ -8,12 +8,12 @@ namespace DoneIt.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Signup()
+        public IActionResult Signin()
         {
             return View();
         }
 
-        public IActionResult Signin()
+        public IActionResult Signup()
         {
             return View();
         }
