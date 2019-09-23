@@ -1,0 +1,60 @@
+﻿@model DoneIt.ViewModels.WorkingItem.WorkingItemDeleteViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Delete Item";
+}
+
+<form method="post" asp-action="Delete">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <label class="label" asp-for="PrivateId"></label>
+                <div class="control has-icons-left">
+                    <input class="input is-primary readonly" asp-for="PrivateId" readonly />
+                    <span class="icon is-left">
+                        <span class="fas fa-pen"></span>
+                    </span>
+                </div>
+                <span asp-validation-for="Name" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="Name"></label>
+                <div class="control has-icons-left">
+                    <input class="input is-primary readonly" asp-for="Name" readonly />
+                    <span class="icon is-left">
+                        <span class="fas fa-pen"></span>
+                    </span>
+                </div>
+                <span asp-validation-for="Name" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="Description"></label>
+                <div class="control has-icons-left">
+                    <textarea class="textarea is-primary p-t-lg p-l-lg" rows="10" asp-for="Description" readonly></textarea>
+                    <span class="icon is-left">
+                        <span class="fas fa-sticky-note"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="DateTimeFrom"></label>
+                <div class="control">
+                    <input class="input is-primary" asp-for="DateTimeFrom" readonly />
+                </div>
+                <span asp-validation-for="DateTimeFrom" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="DateTimeTo"></label>
+                <div class="control">
+                    <input class="input is-primary" asp-for="DateTimeTo" readonly />
+                </div>
+                <span asp-validation-for="DateTimeTo" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

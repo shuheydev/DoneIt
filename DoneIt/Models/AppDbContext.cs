@@ -8,16 +8,19 @@ namespace DoneIt.Models
         //コンストラクタ
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
         }
 
         //テーブルのモデル（クラス）を指定する
         //DbSet<Movie> Movie {get; set;} //例
-        DbSet<WorkingItem> WorkingItem { get; set; }
+        public DbSet<WorkingItem> WorkingItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<WorkingItem>()
+                .HasIndex(u => u.PrivateId)
+                .IsUnique();
         }
     }
 }

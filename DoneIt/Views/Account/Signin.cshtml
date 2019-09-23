@@ -7,6 +7,7 @@
 <div class="container is-fluid">
     <section class="section">
         <div class="container has-text-centered">
+            <div asp-validation-summary="All" class="has-text-danger is-left"></div>
             <div class="columns is-centered">
                 <div class="column is-5 is-4-desktop">
                     <h2 class="title">
@@ -14,19 +15,22 @@
                     </h2>
                     <form method="post">
                         <div class="field">
-                            <div class="control">
+                            <div class="control has-icons-left">
                                 <input class="input" asp-for="Email" placeholder="Email" />
+                                <span class="icon is-left">
+                                    <span class="fas fa-envelope"></span>
+                                </span>
                             </div>
+                            <span asp-validation-for="Email" class="has-text-danger"></span>
                         </div>
                         <div class="field">
-                            <div class="control">
+                            <div class="control has-icons-left">
                                 <input class="input" asp-for="Password" placeholder="Password" />
+                                <span class="icon is-left">
+                                    <span class="fas fa-lock"></span>
+                                </span>
                             </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" asp-for="PasswordConfirm" placeholder="Confirm Password" />
-                            </div>
+                            <span asp-validation-for="Password" class="has-text-danger"></span>
                         </div>
                         <div class="field is-grouped">
                             <div class="control is-expanded">

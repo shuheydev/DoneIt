@@ -36,12 +36,22 @@ namespace DoneIt.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("To")
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrivateId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset?>("To")
                         .HasColumnType("datetimeoffset");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkingItem");
+                    b.HasIndex("PrivateId")
+                        .IsUnique();
+
+                    b.ToTable("WorkingItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

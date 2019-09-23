@@ -1,52 +1,21 @@
 ﻿<div class="navbar is-fixed-top">
     <div class="navbar-menu">
-        <div class="navbar-start">
-            <div class="navbar-item">
-                <span class="fa fa-language">一言SNS</span>
-            </div>
-        </div>
         <div class="navbar-end">
             <div class="navbar-item">
-                <div class="field has-addons">
-                    <div class="control">
-                        <input class="input" type="search" name="search" placeholder="キーワード検索" />
-                    </div>
-                    <div class="control">
-                        <a class="button is-info"><i class="fa fa-search"></i>検索</a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-item">
-                <a href="#" class="fa fa-user">ログイン</a>
+                <form method="post">
+                    <span class="fa fa-sign-out-alt"></span>
+                    <a asp-action="Signout" asp-controller="Account" class="is-text">Sign Out!</a>
+                </form>
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="hero is-info is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">ShuHelohelo</h1>
-            <h2 class="subtitle">@@helohelo@("<a>hello</a>")</h2>
+            <h1 class="title">@User.Identity.Name Done</h1>
+            <h2 class="subtitle">@ViewBag.Title</h2>
         </div>
     </div>
 </div>
-
-<section class="level">
-    <div class="level-left"></div>
-    <div class="level-right">
-        <div class="level-item tabs">
-            <ul>
-                <li class="is-active"><a>最近の一言</a></li>
-                <li><a>古い一言</a></li>
-                <li><a>コメント付き</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="level-right">
-        <div class="level-item">
-            <a class="button has-text-grey-light">フォロー</a>
-        </div>
-    </div>
-</section>

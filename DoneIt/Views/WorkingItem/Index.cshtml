@@ -1,0 +1,76 @@
+﻿@model DoneIt.ViewModels.WorkingItem.WorkingItemIndexViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Working Items";
+}
+
+
+<div class="m-b-md">
+    <a asp-action="Create">
+        <span class="fas fa-plus-circle is-size-2"></span>
+    </a>
+</div>
+
+<table class="table is-bordered is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].PrivateId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].DateTimeFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].DateTimeTo)
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WorkingItems)
+        {
+            <tr>
+                <td>
+                    @item.PrivateId
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.DateTimeFrom
+                </td>
+                <td>
+                    @item.DateTimeTo
+                </td>
+                <td>
+                    <div>
+                        <a asp-action="Detail" asp-route-privateId="@item.PrivateId">
+                            <span class="fas fa-book-open"></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-privateId="@item.PrivateId">
+                            <span class="fas fa-edit"></span>
+                        </a>
+                    </div>
+                    <div>
+                        <a asp-action="Delete" asp-route-privateId="@item.PrivateId">
+                            <span class="fas fa-trash-alt"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

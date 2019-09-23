@@ -1,0 +1,50 @@
+﻿@model DoneIt.ViewModels.WorkingItem.WorkingItemCreateViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Create Working Item";
+}
+
+<form method="post" asp-action="Create">
+    <div class="card">
+        <div class="card-content">
+            <div class="field">
+                <label class="label" asp-for="Name"></label>
+                <div class="control has-icons-left">
+                    <input class="input is-primary" asp-for="Name" />
+                    <span class="icon is-left">
+                        <span class=""></span>
+                    </span>
+                </div>
+                <span asp-validation-for="Name" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="Description"></label>
+                <div class="control has-icons-left">
+                    <textarea class="textarea is-primary p-t-lg" rows="10" asp-for="Description" style="padding-left:20px"></textarea>
+                    <span class="icon is-left">
+                        <span class="fas fa-sticky-note"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="DateTimeFrom"></label>
+                <div class="control">
+                    <input class="input is-primary" asp-for="DateTimeFrom" placeholder="hello" />
+                </div>
+                <span asp-validation-for="DateTimeFrom" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <label class="label" asp-for="DateTimeTo"></label>
+                <div class="control">
+                    <input class="input is-primary" asp-for="DateTimeTo" placeholder="wow" />
+                </div>
+                <span asp-validation-for="DateTimeTo" class="is-danger"></span>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

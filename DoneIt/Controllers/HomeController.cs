@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DoneIt.Repository.WorkingItemRepository;
+using DoneIt.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using DoneIt.Models;
-using DoneIt.ViewModels;
+using System.Diagnostics;
 
 namespace DoneIt.Controllers
 {
@@ -14,12 +10,13 @@ namespace DoneIt.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            IWorkingItemRepository workItemRepository)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Sample()
         {
             return View();
         }

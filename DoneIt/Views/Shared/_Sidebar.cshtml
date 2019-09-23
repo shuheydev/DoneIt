@@ -1,28 +1,21 @@
-﻿<aside class="box">
-    ああああああああああああああああああああああああ
+﻿<aside>
+    <p>
+        Recently
+    </p>
+    <ul class="menu-list">
+    </ul>
 </aside>
 
 <aside id="sidebar_body" class="box menu">
-    <p class="menu-label">
-        おすすめの一言
+    <p>
+        Menu
     </p>
     <ul class="menu-list">
-        <li><a>株式会社ハル<small>@@haru</small></a></li>
-        <li><a>ソフト<small>@@software</small></a></li>
-        <li><a>オフィス・アル<small>@@office-al</small></a></li>
-    </ul>
-    <p class="menu-label">
-        キーワード
-    </p>
-    <ul class="menu-list">
-        <li><a>システム開発</a></li>
         <li>
-            <a class="is-active">技術教育</a>
-            <ul>
-                <li><a>一社研修</a></li>
-                <li><a>定期開催コース</a></li>
-            </ul>
+            <a asp-action="Index" asp-controller="WorkingItem">Working Items</a>
         </li>
-        <li><a>ソフトウェアテスティング</a></li>
+        <li>
+            <a asp-action="Create" asp-controller="WorkingItem">Add Working Item</a>
+        </li>
     </ul>
 </aside>

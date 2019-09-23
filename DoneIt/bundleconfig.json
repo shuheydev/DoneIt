@@ -9,6 +9,15 @@
     }
   },
   {
+    "outputFileName": "wwwroot/css/BulmaSpacingHelper.min.css",
+    "inputFiles": [
+      "wwwroot/css/BulmaSpacingHelper.css"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js"

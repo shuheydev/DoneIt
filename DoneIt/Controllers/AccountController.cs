@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoneIt.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -31,6 +32,26 @@ namespace DoneIt.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> SignIn(SigninViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: false, lockoutOnFailure: false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("index", "WorkingItem");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+
+            return View(model);
+        }
+
+
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Signup()
         {
@@ -49,7 +70,7 @@ namespace DoneIt.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("index", "WorkingItem");
                 }
 
                 foreach (var error in result.Errors)
@@ -59,6 +80,16 @@ namespace DoneIt.Controllers
             }
 
             return View(model);
+        }
+
+
+        public async Task<IActionResult> Signout()
+        {
+            var aaa = _signInManager.IsSignedIn(User);
+            await _signInManager.SignOutAsync();
+
+            var test = _signInManager.IsSignedIn(User);
+            return RedirectToAction("signin", "account");
         }
     }
 }
