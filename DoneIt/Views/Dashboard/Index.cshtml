@@ -1,0 +1,38 @@
+﻿@model DoneIt.ViewModels.Dashboard.DashboardIndexViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Dashboard";
+}
+
+<table class="table is-bordered is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WorkingItems[0].LastModified)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WorkingItems)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Duration
+                </td>
+                <td>
+                    @item.LastModified
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

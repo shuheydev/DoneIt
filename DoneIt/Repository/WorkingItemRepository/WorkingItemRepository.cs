@@ -1,9 +1,12 @@
 ﻿using DoneIt.Models;
 using DoneIt.Repository.WorkingItemRepository;
+using DoneIt.ViewModels.Dashboard;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static DoneIt.ViewModels.Dashboard.DashboardIndexViewModel;
 
 namespace DoneIt.Repository.HomeRepository
 {
@@ -54,6 +57,18 @@ namespace DoneIt.Repository.HomeRepository
             var ownersItems = _context.WorkingItems.Where(item => item.OwnerId == ownerId).ToList();
 
             return ownersItems.Any() ? ownersItems.Max(item => item.PrivateId) + 1 : 1;
+        }
+
+        public async Task<List<DashboardWorkingItem>> GetTotalDurations()
+        {
+            return (await _context.WorkingItems.Where(item => item.To != null).ToListAsync())
+                .GroupBy(item => item.Name)
+                .Select(g => new DashboardWorkingItem
+                {
+                    Name = g.Key,
+                    Duration = new TimeSpan(g.Sum(item => (item.To - item.From).Value.Ticks)).ToString(),
+                    LastModified = g.Max(item => item.To).Value.ToString("yyyy/MM/dd HH:mm"),
+                }).ToList();
         }
 
         public async Task<WorkingItem> GetWorkingItemAsync(string ownerId, int privateId)

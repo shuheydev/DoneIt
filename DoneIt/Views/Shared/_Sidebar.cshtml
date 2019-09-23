@@ -12,10 +12,13 @@
     </p>
     <ul class="menu-list">
         <li>
-            <a asp-action="Index" asp-controller="WorkingItem">Working Items</a>
+            <a asp-action="Index" asp-controller="Dashboard"><span class="fas fa-chart-bar"></span>Dashboard</a>
         </li>
         <li>
-            <a asp-action="Create" asp-controller="WorkingItem">Add Working Item</a>
+            <a asp-action="Index" asp-controller="WorkingItem"><span class="fas fa-list"></span>Working Items</a>
+        </li>
+        <li>
+            <a asp-action="Create" asp-controller="WorkingItem"><span class="fas fa-plus"></span>Add Working Item</a>
         </li>
     </ul>
 </aside>

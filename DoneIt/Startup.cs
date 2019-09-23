@@ -77,7 +77,7 @@ namespace DoneIt
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=WorkingItem}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
             });
         }
     }

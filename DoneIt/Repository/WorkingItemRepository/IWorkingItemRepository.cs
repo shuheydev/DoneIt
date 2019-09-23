@@ -1,8 +1,7 @@
 ﻿using DoneIt.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using static DoneIt.ViewModels.Dashboard.DashboardIndexViewModel;
 
 namespace DoneIt.Repository.WorkingItemRepository
 {
@@ -13,6 +12,7 @@ namespace DoneIt.Repository.WorkingItemRepository
         public int GetNewPrivateId(string ownerId);
         public Task<WorkingItem> GetWorkingItemAsync(string ownerId, int privateId);
         public Task<WorkingItem> UpdateAsync(WorkingItem item, bool withSaveChange = true);
+        public Task<List<DashboardWorkingItem>> GetTotalDurations();
         public Task<WorkingItem> DeleteAsync(string ownerId, int privateId, bool withSaveChange = true);
     }
 }
